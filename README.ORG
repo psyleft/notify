@@ -1,0 +1,18 @@
+# -*- org-make-toc-link-type-fn: #'org-make-toc--link-entry-github; -*-
+:PROPERTIES:
+:CREATED: [2024-06-07 Fri 18:45]
+:MODIFIED: [2024-06-07 Fri 18:45]
+:END:
+
+#+title: Notify
+#+author: Connor Clark
+#+email: connor@psyleft.com
+
+Simple C program to send out notifications to an ntfy server based on Guile JSON templates
+
+* About
+This is a personal project mostly made to have fun playing around with the curl and Guile APIs. It's probably not very practical, but you may find it useful to use as a reference.
+
+To get started, simply run ~make~ in the project root and then supply the resulting binary with the name of the notification you want to send out. Notification templates can be dynamically added to the =guile= subdirectory in the project root, and follow the naming format =[name].scm=. When evaluated, they should return a string of JSON-formatted text. A test example is provided that uses the Guile json module. Finally, you can configure the target server, as well as authentication parameters, in =config.h=. The provided values are baked into the executable at compile time.
+
+If you use Guix, a =manifest.scm= file is provided with all the necessary packages to build and run the project. Otherwise, you can install all the packages listed there manually.
